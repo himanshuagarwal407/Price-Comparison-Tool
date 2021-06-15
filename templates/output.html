@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- <link rel="stylesheet" href="C:\Users\Nishant Pratap\Desktop\Project_\Price_Comparision\priceCSS.css"> -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+      <style type="text/css">
+        .jumbotron {
+          padding-top: 1px !important;
+          padding-bottom: 35px !important;
+        }
+        {% load static%}
+        body{
+          background-image: url("img.jpg");
+          width: 100%;
+          height: 100%;
+        }
+        .back{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1)),url("{%static 'pct/back.jfif' %}");
+  }
+      </style>
+
+    <title>Search products</title>
+
+  </head>
+  <body>
+    <br><br>
+    <h3 class="text-center">Price Comparision</h3>
+    <form name="search" action="/scrapping" method="post">{% csrf_token %}
+        <div class="search_bar">
+            <br>
+            <input type="text" name="Searchbox" style="width: 300px; height:30px" autocomplete="off" placeholder="Search for products, brands and more">
+            <button type="button" class="btn btn-info mt-2">Search</button>
+        </div>
+    </form>
+
+    <br>
+    <div class="jumbotron"  style="height: 5px;">
+      <h3>Flipkart</h3>
+    </div>
+
+    <div class="container">
+        <h2>{{Product}}</h2>
+        <h2>{{Price2}}</h2>
+    </div>
+
+    <br>
+    <div class="jumbotron"  style="height: 5px;">
+      <h3>Amazon</h3>
+    </div>
+
+    <div class="container">
+        <h2>{{Product}}</h2>
+        <h2>{{Price1}}</h2>
+    </div>
+
+  </body>
+</html>
